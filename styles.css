@@ -17,3 +17,12 @@ html {
     align-items: center;
     padding: 0.1em; 
   }
+
+  .dropbtn {
+    background-color: #e2e7eb;
+    color: rgb(0, 0, 0);
+    padding: 0.2em;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
