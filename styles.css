@@ -18,11 +18,23 @@ html {
     padding: 0.1em; 
   }
 
-  .dropbtn {
+.dropbtn{
     background-color: #e2e7eb;
     color: rgb(0, 0, 0);
     padding: 0.2em;
     font-size: 16px;
     border: none;
     cursor: pointer;
+  }
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+  }
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #e2e7eb;
+    min-width: 105px;
   }
