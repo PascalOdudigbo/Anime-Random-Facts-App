@@ -19,12 +19,13 @@ html {
   }
 
 .dropbtn{
-    background-color: #e2e7eb;
-    color: rgb(0, 0, 0);
+    background-color: rgb(49, 109, 179);
+    color: rgb(255, 255, 255);
     padding: 0.2em;
     font-size: 16px;
     border: none;
     cursor: pointer;
+    border-radius: 10%;
   }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -80,5 +81,47 @@ html {
     justify-content: space-around;
     align-items: center;
     padding: 0.1em; 
+  }
+
+.voteButons{
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.1em; 
+}
+
+.voteButons button{
+    background: rgb(3, 19, 37);
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 4px;
+    border-radius: 50%;
+}
+
+#btnUpVote:hover, #btnUpVote:focus{
+    background-color: rgb(49, 109, 179);
+}
+
+#btnDownVote:hover, #btnDownVote:focus{
+    background-color: rgb(179, 49, 49);
+}
+
+input[type="submit"]{
+    background-color: rgb(49, 109, 179);
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10%;
+  }
+  
+input[type="text"] {
+    font-size: 24px;
+    border-radius: 10%;
   }
 
