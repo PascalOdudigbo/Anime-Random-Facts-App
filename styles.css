@@ -8,3 +8,12 @@ html {
     color: white;
     padding: 0.1em;
   }
+
+#menuBar{
+    height: 5vh;
+    background: rgb(3, 19, 37);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.1em; 
+  }
