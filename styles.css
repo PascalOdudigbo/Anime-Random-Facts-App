@@ -66,3 +66,19 @@ html {
     text-align: center;
 
   }
+
+#animeImage{
+    width: 300px;
+    height: 300px;
+  }
+
+.factsBar{
+    height: 10vh;
+    background: rgb(3, 19, 37);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.1em; 
+  }
+
