@@ -41,15 +41,14 @@ html {
 .dropdown-content{
     display: none;
     position: absolute;
-    background-color: #e2e7eb;
-    min-width: 105px;
+    background: rgb(3, 19, 37);
   }
 
 .dropdown-content button{
     padding: 12px 16px;
-    background-color: #e2e7eb;
-    color: rgb(0, 0, 0);
-    border: none;
+    background: rgb(3, 19, 37);
+    color: rgb(255, 255, 255);
+    border: 1px;
     cursor: pointer;
     text-decoration: none;
     display: block;
