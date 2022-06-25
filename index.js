@@ -17,6 +17,7 @@ function fetchAnimeNames() {
 				const animeNAme = anime.anime_name;
 				btnSelectAnime.innerText = animeNAme.replaceAll('_', ' ');
 				btnSelectAnime.addEventListener("click", () => {
+                    clearInterval(window.interval)
                     fetchRandomFacts(anime.anime_name);
 					const animeNAmeElement = document.getElementById("name");
 					const animeImage = document.getElementById("animeImage");
@@ -55,7 +56,7 @@ function fetchRandomFacts(animeName) {
 				factsArray.push(animeFact.fact);
 
 			});
-            setInterval(()=>{
+            window.interval = setInterval(()=>{
                 const randomIndex = (Math.floor(Math.random() * factsArray.length));
 			    let randomFact = factsArray[randomIndex];
 	            randomFactElement.innerText = randomFact;

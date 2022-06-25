@@ -1,0 +1,83 @@
+{
+    "votes": [
+      {
+        "anime_id": 1,
+        "anime_name": "bleach",
+        "up_votes": 0,
+        "down_votes":0
+
+      },
+      {
+        "anime_id": 2,
+        "anime_name": "black_clover",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 3,
+        "anime_name": "dragon_ball",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 4,
+        "anime_name": "jujutsu_kaisen",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 5,
+        "anime_name": "fma_brotherhood",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 6,
+        "anime_name": "naruto",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 7,
+        "anime_name": "gintama",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 8,
+        "anime_name": "itachi_uchiha",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 9,
+        "anime_name": "one_piece",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 10,
+        "anime_name": "demon_slayer",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 11,
+        "anime_name": "attack_on_titan",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 12,
+        "anime_name": "hunter_x_hunter",
+        "up_votes": 0,
+        "down_votes":0
+      },
+      {
+        "anime_id": 13,
+        "anime_name": "boku_no_hero_academia",
+        "up_votes": 0,
+        "down_votes":0
+      }
+    ]
+  }
