@@ -17,14 +17,14 @@ function fetchAnimeNames() {
 				const animeNAme = anime.anime_name;
 				btnSelectAnime.innerText = animeNAme.replaceAll('_', ' ');
 				btnSelectAnime.addEventListener("click", () => {
-                    clearInterval(window.interval)
-                    fetchRandomFacts(anime.anime_name);
-                    fetchAnimeVotes(anime.anime_name.replaceAll('_', ' ').toUpperCase());
 					const animeNAmeElement = document.getElementById("name");
 					const animeImage = document.getElementById("animeImage");
 					animeNAmeElement.textContent = anime.anime_name.replaceAll('_', ' ').toUpperCase();
 					animeImage.setAttribute("src", anime.anime_img);
 					dropdownElements.style.display = "none";
+                    clearInterval(window.interval)
+                    fetchRandomFacts(anime.anime_name);
+                    fetchAnimeVotes(anime.anime_name.replaceAll('_', ' ').toUpperCase());
                     
 				});
 				dropdownElements.appendChild(btnSelectAnime);
@@ -72,21 +72,50 @@ function fetchAnimeVotes(animeNAme){
     const animeNAmeElement = document.getElementById("name");
     const upVotesElement = document.getElementById("upVotes");
     const downVotesElement = document.getElementById("downVotes");
-    const displayedName = animeNAmeElement.innerText;
+    const btnUpVotes = document.getElementById("btnUpVote");
+    const btnDownVotes = document.getElementById("btnDownVote");
+    //const displayedName = animeNAmeElement.innerText;
     fetch("http://localhost:3000/votes")
     .then(response => response.json())
     .then(votes => {
         
         votes.forEach(animeData => {
             const formatedAnimeName = animeData.anime_name.replaceAll('_', ' ').toUpperCase();
-            console.log(animeData);
-            console.log(formatedAnimeName);
-            console.log(displayedName);
+            // console.log(animeData);
+            // console.log(formatedAnimeName);
+            // console.log(displayedName);
             if (animeNAme === formatedAnimeName){
                 let upVotes = animeData.up_votes
                 let downVotes = animeData.down_votes
                 upVotesElement.innerText = upVotes;
                 downVotesElement.innerText = downVotes;
+
+                btnUpVotes.addEventListener("click", (e)=> {
+                    e.preventDefault();
+                    const index = animeData.anime_id;
+                    console.log(index);
+                    const newVote = {
+                        anime_id: animeData.anime_id,
+                        anime_name: animeData.anime_name,
+                        up_votes:  (animeData.up_votes + 1),
+                        down_votes: animeData.down_votes
+                    }
+                    fetch(`http://localhost:3000/votes/${index}`,{ 
+                            method:'PUT',
+                            headers:{
+                                'Content-Type':'application/json'
+                            },
+                            body:JSON.stringify(newVote)
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            // console.log(`Element: ${data}`);
+                            let newVotes = data.up_votes
+                            upVotesElement.innerText = newVotes;
+                            
+                        })
+                        .catch(e => setTimeout(alert(e.message), 3000));   
+                });
             }
         })
     })
