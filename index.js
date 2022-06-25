@@ -19,6 +19,7 @@ function fetchAnimeNames() {
 				btnSelectAnime.addEventListener("click", () => {
                     clearInterval(window.interval)
                     fetchRandomFacts(anime.anime_name);
+                    fetchAnimeVotes(anime.anime_name.replaceAll('_', ' ').toUpperCase());
 					const animeNAmeElement = document.getElementById("name");
 					const animeImage = document.getElementById("animeImage");
 					animeNAmeElement.textContent = anime.anime_name.replaceAll('_', ' ').toUpperCase();
@@ -64,6 +65,31 @@ function fetchRandomFacts(animeName) {
             
 		})
 		.catch(err => setTimeout(alert(err.message), 3000));
+
+}
+
+function fetchAnimeVotes(animeNAme){
+    const animeNAmeElement = document.getElementById("name");
+    const upVotesElement = document.getElementById("upVotes");
+    const downVotesElement = document.getElementById("downVotes");
+    const displayedName = animeNAmeElement.innerText;
+    fetch("http://localhost:3000/votes")
+    .then(response => response.json())
+    .then(votes => {
+        
+        votes.forEach(animeData => {
+            const formatedAnimeName = animeData.anime_name.replaceAll('_', ' ').toUpperCase();
+            console.log(animeData);
+            console.log(formatedAnimeName);
+            console.log(displayedName);
+            if (animeNAme === formatedAnimeName){
+                let upVotes = animeData.up_votes
+                let downVotes = animeData.down_votes
+                upVotesElement.innerText = upVotes;
+                downVotesElement.innerText = downVotes;
+            }
+        })
+    })
 
 
 }
