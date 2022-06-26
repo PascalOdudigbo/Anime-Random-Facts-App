@@ -20,28 +20,29 @@
         
         <div class="animeInfoDiv">
             <div id="specificInfo">
-              <p id="name">Anime Name</p>
+              <h4 id="name">Anime Name</h4>
               <img
                 id="animeImage"
                 src="https://previews.123rf.com/images/yehorlisnyi/yehorlisnyi2104/yehorlisnyi210400016/167492439-no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-comin.jpg?fj=1"
                 alt="Anime Image"
               />
-              <h4>Up Votes: <span id="upVotes">Anime Up Votes</span></h4>
-              <h4>Down Votes: <span id="downVotes">Anime Down Votes</span></h4>
+              <div id="votes">
+                <p>Up Votes: <span id="upVotes">Anime Up Votes</span></p>
+                <p>Down Votes: <span id="downVotes">Anime Down Votes</span></p>
+              </div>
               
               <div class="voteButons">
                 <button id="btnUpVote" type="submit">+</button>
                 <button id="btnDownVote">-</button>
               </div>
-
+              <br>
               <div class="factsBar">
                 <p id="RandomFact">Anime Random Facts</p>
               </div>
-
               <div class="factsBar">
                 <form id="fact-form">
-                    <input type="text" placeholder="Enter random fact" id="InputFact" name="facts" />
-                    <input type="submit" value="Add Fact" />
+                    <!--input type="text" placeholder="Enter random fact" id="InputFact" name="facts" /-->
+                    <!--input type="submit" value="Add Fact" /-->
                 </form>
               </div>
             </div>

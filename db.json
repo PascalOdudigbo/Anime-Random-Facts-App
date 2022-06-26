@@ -3,14 +3,14 @@
     {
       "anime_id": 1,
       "anime_name": "bleach",
-      "up_votes": 35,
-      "down_votes": 35
+      "up_votes": 41,
+      "down_votes": 40
     },
     {
       "anime_id": 2,
       "anime_name": "black_clover",
-      "up_votes": 18,
-      "down_votes": 22
+      "up_votes": 22,
+      "down_votes": 26
     },
     {
       "anime_id": 3,
@@ -21,8 +21,8 @@
     {
       "anime_id": 4,
       "anime_name": "jujutsu_kaisen",
-      "up_votes": 6,
-      "down_votes": 0
+      "up_votes": 10,
+      "down_votes": 4
     },
     {
       "anime_id": 5,
@@ -63,8 +63,8 @@
     {
       "anime_id": 11,
       "anime_name": "attack_on_titan",
-      "up_votes": 0,
-      "down_votes": 0
+      "up_votes": 1,
+      "down_votes": 1
     },
     {
       "anime_id": 12,

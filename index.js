@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 	fetchAnimeNames();
 	dropDownClickEvent();
+    const dataDisplay = document.getElementById("specificInfo");
+    dataDisplay.style.display = "none"
 
 
 
@@ -9,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function fetchAnimeNames() {
 	const dropdownElements = document.getElementById("myDropdown");
+    const dataDisplay = document.getElementById("specificInfo");
+   
 	fetch("https://anime-facts-rest-api.herokuapp.com/api/v1")
 		.then(response => response.json())
 		.then(data => {
@@ -17,6 +21,7 @@ function fetchAnimeNames() {
 				const animeNAme = anime.anime_name;
 				btnSelectAnime.innerText = animeNAme.replaceAll('_', ' ');
 				btnSelectAnime.addEventListener("click", () => {
+                    dataDisplay.style.display = "block"
 					const animeNAmeElement = document.getElementById("name");
 					const animeImage = document.getElementById("animeImage");
 					animeNAmeElement.textContent = anime.anime_name.replaceAll('_', ' ').toUpperCase();
@@ -25,6 +30,7 @@ function fetchAnimeNames() {
                     clearInterval(window.interval);
                     fetchRandomFacts(anime.anime_name);
                     fetchAnimeVotes(anime.anime_name.replaceAll('_', ' ').toUpperCase());
+                    enableVoteButtons();
                     
 				});
 				dropdownElements.appendChild(btnSelectAnime);
@@ -136,10 +142,12 @@ function upVoteAndDownVoteAnime(animeNAme){
                         })
                         .catch(e => setTimeout(alert(e.message), 3000)); 
                     
-                }
+            
+                    }
             })
             
         })
+        btnUpVotes.disabled = true;
   
     });
 
@@ -180,7 +188,17 @@ function upVoteAndDownVoteAnime(animeNAme){
                 }
             })
             
-        });   
+        }); 
+        btnDownVotes.disabled = true;  
     });
 
+}
+function enableVoteButtons(){
+    const btnUpVotes = document.getElementById("btnUpVote");
+    const btnDownVotes = document.getElementById("btnDownVote");
+    if( btnUpVotes.disabled === true ||  btnDownVotes.disabled === true){
+        btnUpVotes.disabled = false;
+        btnDownVotes.disabled = false;
+  
+    }
 }
