@@ -3,49 +3,49 @@
     {
       "anime_id": 1,
       "anime_name": "bleach",
-      "up_votes": 8,
-      "down_votes": 0
+      "up_votes": 35,
+      "down_votes": 35
     },
     {
       "anime_id": 2,
       "anime_name": "black_clover",
-      "up_votes": 7,
-      "down_votes": 0
+      "up_votes": 18,
+      "down_votes": 22
     },
     {
       "anime_id": 3,
       "anime_name": "dragon_ball",
-      "up_votes": 3,
-      "down_votes": 0
+      "up_votes": 8,
+      "down_votes": 8
     },
     {
       "anime_id": 4,
       "anime_name": "jujutsu_kaisen",
-      "up_votes": 0,
+      "up_votes": 6,
       "down_votes": 0
     },
     {
       "anime_id": 5,
       "anime_name": "fma_brotherhood",
-      "up_votes": 0,
+      "up_votes": 1,
       "down_votes": 0
     },
     {
       "anime_id": 6,
       "anime_name": "naruto",
-      "up_votes": 0,
-      "down_votes": 0
+      "up_votes": 3,
+      "down_votes": 1
     },
     {
       "anime_id": 7,
       "anime_name": "gintama",
-      "up_votes": 0,
+      "up_votes": 1,
       "down_votes": 0
     },
     {
       "anime_id": 8,
       "anime_name": "itachi_uchiha",
-      "up_votes": 0,
+      "up_votes": 1,
       "down_votes": 0
     },
     {

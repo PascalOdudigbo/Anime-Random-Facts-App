@@ -22,7 +22,7 @@ function fetchAnimeNames() {
 					animeNAmeElement.textContent = anime.anime_name.replaceAll('_', ' ').toUpperCase();
 					animeImage.setAttribute("src", anime.anime_img);
 					dropdownElements.style.display = "none";
-                    clearInterval(window.interval)
+                    clearInterval(window.interval);
                     fetchRandomFacts(anime.anime_name);
                     fetchAnimeVotes(anime.anime_name.replaceAll('_', ' ').toUpperCase());
                     
@@ -72,8 +72,7 @@ function fetchAnimeVotes(animeNAme){
     const animeNAmeElement = document.getElementById("name");
     const upVotesElement = document.getElementById("upVotes");
     const downVotesElement = document.getElementById("downVotes");
-    const btnUpVotes = document.getElementById("btnUpVote");
-    const btnDownVotes = document.getElementById("btnDownVote");
+    
     //const displayedName = animeNAmeElement.innerText;
     fetch("http://localhost:3000/votes")
     .then(response => response.json())
@@ -89,9 +88,29 @@ function fetchAnimeVotes(animeNAme){
                 let downVotes = animeData.down_votes
                 upVotesElement.innerText = upVotes;
                 downVotesElement.innerText = downVotes;
+                upVoteAndDownVoteAnime(animeNAme);
+                
+            }
+        })
+        
+    })
 
-                btnUpVotes.addEventListener("click", (e)=> {
-                    e.preventDefault();
+
+}
+
+function upVoteAndDownVoteAnime(animeNAme){
+    const upVotesElement = document.getElementById("upVotes");
+    const downVotesElement = document.getElementById("downVotes");
+    const btnUpVotes = document.getElementById("btnUpVote");
+    const btnDownVotes = document.getElementById("btnDownVote");
+    btnUpVotes.addEventListener("click", ()=> {
+        fetch("http://localhost:3000/votes")
+        .then(response => response.json())
+        .then(votes => {
+            
+            votes.forEach(animeData => {
+                const formatedAnimeName = animeData.anime_name.replaceAll('_', ' ').toUpperCase();
+                if (animeNAme === formatedAnimeName){
                     const index = animeData.anime_id;
                     console.log(index);
                     const newVote = {
@@ -112,13 +131,56 @@ function fetchAnimeVotes(animeNAme){
                             // console.log(`Element: ${data}`);
                             let newVotes = data.up_votes
                             upVotesElement.innerText = newVotes;
+                            return false;
                             
                         })
-                        .catch(e => setTimeout(alert(e.message), 3000));   
-                });
-            }
+                        .catch(e => setTimeout(alert(e.message), 3000)); 
+                    
+                }
+            })
+            
         })
-    })
+  
+    });
 
+    btnDownVotes.addEventListener("click", ()=> {
+        fetch("http://localhost:3000/votes")
+        .then(response => response.json())
+        .then(votes => {
+            
+            votes.forEach(animeData => {
+                const formatedAnimeName = animeData.anime_name.replaceAll('_', ' ').toUpperCase();
+                if (animeNAme === formatedAnimeName){
+                    const index = animeData.anime_id;
+                    console.log(index);
+                    const newVote = {
+                        anime_id: animeData.anime_id,
+                        anime_name: animeData.anime_name,
+                        up_votes: animeData.up_votes,
+                        down_votes: (animeData.down_votes + 1)
+
+                    }
+                    fetch(`http://localhost:3000/votes/${index}`,{ 
+                            method:'PUT',
+                            headers:{
+                                'Content-Type':'application/json'
+                            },
+                            body:JSON.stringify(newVote)
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(`Element: ${data}`);
+                            let newVotes = data.down_votes;
+                            downVotesElement.innerText = newVotes;
+                            // return false;
+                            
+                        })
+                        .catch(e => setTimeout(alert(e.message), 3000)); 
+                    
+                }
+            })
+            
+        });   
+    });
 
 }
